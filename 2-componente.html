@@ -15,9 +15,22 @@
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     
     <script type="text/babel">
+
+        function Button(){
+            return <button className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Clique aqui</button>
+        }
+        
+        function App(){
+            return (
+                <main className="p-3">
+                    <Button />
+                </main>
+            )
+        }
+
         ReactDOM.createRoot(document.getElementById('root')).render(
-            <h1>Hello, World!</h1>
-        );
+            <App />
+        )
     </script>
 </body>
 </html>
