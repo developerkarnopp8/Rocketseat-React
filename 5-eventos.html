@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocketseat - React.js - Fundamentos</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        function Alert03(){
+            function handleAlertClick(event){
+                alert(event.target.previousSibling.value);
+            }
+
+            function handleInputChange(){
+                console.log(event.target.value)
+            }
+
+            return(
+                <div>
+                    <input onChange={handleInputChange} type="text" placeholder="Digite Algo..."/>
+                    <button onClick={handleAlertClick}>
+                        Mostrar Alerta do Campo Texto    
+                    </button>
+                </div>
+            )
+        }
+
+        function Alert02(){
+
+            function handleAlertClick(msg){
+                alert(msg)
+            }
+
+            return (
+                <button onClick={() => handleAlertClick('Uma mensagem de alerta!')}>
+                    Mostrar Alerta c/ Parâmentro
+                </button>
+            )
+        }
+
+        function Alert01(){
+            function handleAlertClick(event){
+                console.log(event, 'event')
+                alert("Uma mensagem de alerta!")
+            }
+        
+            return (
+                <button type="button" onClick={handleAlertClick}>
+                    Mostrar Alerta
+                </button>
+            )
+        }
+
+        function App(){
+            return (
+                <main className={`
+                        flex
+                        flex-col
+                        gap-2
+                    `}>
+                    <Alert01/>  
+                    <Alert02/>  
+                    <Alert03/>  
+                </main>
+            )
+        }
+        ReactDOM.createRoot(document.getElementById('app')).render(<App />);
+
+    </script>
+</body>
+</html>
